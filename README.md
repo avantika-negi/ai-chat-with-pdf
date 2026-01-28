@@ -25,3 +25,25 @@ Supports querying across multiple PDFs.
 
 ## Limitations
 Large PDFs may slow down response time.
+
+## Challenges Faced & Solutions
+
+During development, the following issues were encountered:
+
+### 1. LangChain Import Errors
+- Issue: Modules like `langchain.document_loaders` and `langchain.text_splitter` caused errors due to version changes.
+- Solution: Updated imports to use `langchain-community`, `langchain-text-splitters`, and `langchain-openai` packages.
+
+### 2. Deprecated RetrievalQA Chain
+- Issue: `RetrievalQA` chain caused compatibility issues with newer LangChain versions.
+- Solution: Implemented a custom retriever + prompt-based QA approach for better stability and control.
+
+### 3. Streamlit Command Not Found
+- Issue: `streamlit run app.py` was not recognized on Windows.
+- Solution: Used `python -m streamlit run app.py` to correctly execute Streamlit.
+
+### 4. OpenAI API Key Error
+- Issue: Application failed due to missing or invalid OpenAI API key.
+- Solution: Clearly documented API key requirement in README. The key is intentionally not included for security and billing reasons.
+
+These issues reflect real-world development challenges and were resolved using debugging and dependency management best practices.
